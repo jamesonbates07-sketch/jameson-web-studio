@@ -13,5 +13,7 @@ Start with:
 - `brand-guide/asset-index.md` for a file-by-file recommendation
 - `brand-guide/brand-audit.md` for the pre-design website audit
 
-The assets in this directory are review candidates. They are not connected to
-the current website header or metadata.
+The brand direction was approved on 20 July 2026. The current draft branch
+connects the compact logo, responsive icon fallback, favicon set, manifest and
+Open Graph image to the website. Merge, deployment and external account rollout
+remain separate approval steps.

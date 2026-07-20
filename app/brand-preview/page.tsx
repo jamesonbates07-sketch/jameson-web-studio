@@ -138,7 +138,9 @@ export default function BrandPreviewPage() {
         <div className={styles.shell}>
           <div className={styles.heroTopline}>
             <span>Jameson Web Studio</span>
-            <span className={styles.reviewBadge}>Review candidate · v1.0</span>
+            <span className={styles.reviewBadge}>
+              Direction approved · implementation review
+            </span>
           </div>
           <div className={styles.heroGrid}>
             <div>
@@ -343,12 +345,18 @@ export default function BrandPreviewPage() {
             <article className={`${styles.mockup} ${styles.headerMockup}`}>
               <p className={styles.mockupLabel}>Website header</p>
               <div className={styles.websiteBar}>
-                <Image
-                  src="/brand/svg/logo-compact-full-colour.svg"
-                  width={180}
-                  height={60}
-                  alt="Proposed compact logo in a website header example"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 359px)"
+                    srcSet="/brand/svg/icon-square-full-colour.svg"
+                  />
+                  <Image
+                    src="/brand/svg/logo-compact-full-colour.svg"
+                    width={168}
+                    height={56}
+                    alt="Implemented responsive Jameson Web Studio header logo"
+                  />
+                </picture>
                 <div className={styles.fakeNav}>
                   <span>Work</span>
                   <span>Offer</span>
@@ -357,7 +365,8 @@ export default function BrandPreviewPage() {
                 </div>
               </div>
               <p className={styles.mockupFootnote}>
-                Review example only — the live header remains unchanged.
+                Implemented in this branch: compact logo from 360 px, square
+                icon below 360 px.
               </p>
             </article>
 
@@ -469,13 +478,17 @@ export default function BrandPreviewPage() {
           <div className={styles.approvalGrid}>
             <div>
               <p className={styles.eyebrow}>Approval boundary</p>
-              <h2>The pack is complete. Adoption is a separate decision.</h2>
+              <h2>
+                Direction approved. Implementation ready for final review.
+              </h2>
             </div>
             <ul>
-              <li>Approve the refined J. and geometric wordmark</li>
-              <li>Choose whether to replace the current header mark</li>
-              <li>Approve favicon and social metadata wiring</li>
-              <li>Approve external Gmail, social and document rollout</li>
+              <li>Compact responsive header applied to both site headers</li>
+              <li>Favicon, manifest and Open Graph metadata connected</li>
+              <li>Merge and deployment remain intentionally pending</li>
+              <li>
+                External Gmail, social and document rollout stays separate
+              </li>
             </ul>
           </div>
         </div>
@@ -484,7 +497,7 @@ export default function BrandPreviewPage() {
       <footer className={styles.footer}>
         <div className={styles.shell}>
           <span>Jameson Web Studio brand asset review</span>
-          <span>No production logo changes · No deployment</span>
+          <span>Approved direction · Draft implementation · No deployment</span>
         </div>
       </footer>
     </main>

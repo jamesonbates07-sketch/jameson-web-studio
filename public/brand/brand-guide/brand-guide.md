@@ -1,6 +1,6 @@
 # Jameson Web Studio brand guide
 
-Version 1.0 review candidate · 20 July 2026
+Version 1.0 approved direction · 20 July 2026
 
 ## Brand idea
 
@@ -183,10 +183,14 @@ and obtain professional advice if a similar mark appears.
 
 ## Production approval
 
-This guide and pack are review candidates. Approval is required before:
+The brand direction and asset pack were approved on 20 July 2026. The current
+draft implementation:
 
-1. replacing either website header implementation;
-2. replacing `app/icon.svg`;
-3. wiring new favicon or manifest metadata;
-4. wiring the Open Graph image into site metadata;
-5. adopting the assets in external Gmail, social or document accounts.
+1. replaces both website header implementations with the compact logo;
+2. uses the square icon below 360 px;
+3. updates `app/icon.svg`;
+4. wires the favicon set, manifest and Open Graph image;
+5. keeps the brand preview unlinked and `noindex,nofollow`.
+
+Merge, deployment and adoption in external Gmail, social or document accounts
+remain separate approval steps.

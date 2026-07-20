@@ -51,8 +51,9 @@ npm run brand:generate
 Start the development server and open
 [http://localhost:3000/brand-preview/](http://localhost:3000/brand-preview/) to
 review every logo version and the main usage examples. This internal route is
-set to `noindex,nofollow` and is not linked from the live site. The existing
-website header and favicon metadata remain unchanged pending approval.
+set to `noindex,nofollow` and is not linked from the live site. The approved
+implementation branch connects the compact responsive header logo, favicon set,
+manifest and Open Graph image. Merge and deployment remain separate steps.
 
 ## Quality checks
 

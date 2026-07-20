@@ -314,6 +314,7 @@
 }
 
 .wordmarkScale img {
+  width: auto;
   height: auto;
 }
 
@@ -430,8 +431,13 @@
     var(--preview-paper);
 }
 
+.websiteBar picture {
+  display: block;
+  flex: none;
+}
+
 .websiteBar img {
-  width: 11.25rem;
+  width: 10.5rem;
   height: auto;
 }
 
