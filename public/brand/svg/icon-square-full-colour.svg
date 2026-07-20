@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="jameson-web-studio-icon-full-colour-title jameson-web-studio-icon-full-colour-description">
+  <title id="jameson-web-studio-icon-full-colour-title">Jameson Web Studio icon full-colour</title>
+  <desc id="jameson-web-studio-icon-full-colour-description">A dark rounded square containing a bright green geometric J and period.</desc>
+  <g transform="translate(0 0) scale(1)">
+    <rect x="0" y="0" width="64" height="64" rx="16" fill="#171914" stroke="none" stroke-width="0"/>
+    <path d="M20 15h24v8H31v13c0 8.7-4.7 13-13.8 13H14v-8h3.2c3.9 0 5.8-1.8 5.8-5.4V23h-3V15Z" fill="#D8FF3E"/>
+    <circle cx="44" cy="45" r="4" fill="#D8FF3E"/>
+  </g>
+</svg>

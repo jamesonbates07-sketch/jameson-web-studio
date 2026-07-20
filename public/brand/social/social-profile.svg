@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-labelledby="jameson-web-studio-social-profile-image-title jameson-web-studio-social-profile-image-description">
+  <title id="jameson-web-studio-social-profile-image-title">Jameson Web Studio social profile image</title>
+  <desc id="jameson-web-studio-social-profile-image-description">A high-contrast Jameson Web Studio icon designed for circular social profile crops.</desc>
+  <rect width="1080" height="1080" fill="#D8FF3E"/>
+  <circle cx="540" cy="540" r="410" fill="#F2F0E9" opacity=".38"/>
+  <g transform="translate(240 240) scale(9.375)">
+    <rect x="0" y="0" width="64" height="64" rx="16" fill="#171914" stroke="none" stroke-width="0"/>
+    <path d="M20 15h24v8H31v13c0 8.7-4.7 13-13.8 13H14v-8h3.2c3.9 0 5.8-1.8 5.8-5.4V23h-3V15Z" fill="#D8FF3E"/>
+    <circle cx="44" cy="45" r="4" fill="#D8FF3E"/>
+  </g>
+</svg>
