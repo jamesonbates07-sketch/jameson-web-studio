@@ -41,6 +41,7 @@ export const metadata: Metadata = {
 };
 
 const email = SITE_EMAIL;
+const [emailName, emailDomain] = email.split("@");
 
 export default function PrivacyPage() {
   return (
@@ -61,13 +62,13 @@ export default function PrivacyPage() {
       </header>
 
       <div className="shell grid gap-12 py-16 sm:py-24 lg:grid-cols-[0.45fr_1fr] lg:gap-20">
-        <aside>
+        <aside className="min-w-0">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-moss">Privacy</p>
           <h1 className="mt-5 font-display text-5xl font-black leading-[0.93] tracking-[-0.06em] sm:text-6xl">The plain-English version.</h1>
           <p className="mt-6 text-sm leading-7 text-ink/55">Last updated: 20 July 2026</p>
         </aside>
 
-        <article className="privacy-copy rounded-[2rem] border border-ink/10 bg-white/50 p-6 sm:p-10 lg:p-14">
+        <article className="privacy-copy min-w-0 rounded-[2rem] border border-ink/10 bg-white/50 p-6 sm:p-10 lg:p-14">
           <section>
             <h2>Overview</h2>
             <p>
@@ -142,8 +143,13 @@ export default function PrivacyPage() {
           <section>
             <h2>Contact</h2>
             <p>For a privacy question or request, email:</p>
-            <a href={`mailto:${email}`} className="mt-4 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white hover:bg-moss">
-              <Mail size={15} /> {email}
+            <a href={`mailto:${email}`} className="mt-4 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white hover:bg-moss max-[299px]:max-w-full">
+              <Mail className="shrink-0" size={15} />
+              <span className="min-w-0 min-[300px]:hidden">
+                {emailName}@<wbr />
+                {emailDomain}
+              </span>
+              <span className="hidden min-[300px]:inline">{email}</span>
             </a>
           </section>
         </article>
