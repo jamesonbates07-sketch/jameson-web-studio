@@ -143,13 +143,13 @@ export default function PrivacyPage() {
           <section>
             <h2>Contact</h2>
             <p>For a privacy question or request, email:</p>
-            <a href={`mailto:${email}`} className="mt-4 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white hover:bg-moss max-[299px]:max-w-full">
+            <a href={`mailto:${email}`} className="mt-4 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white hover:bg-moss max-[307px]:max-w-full">
               <Mail className="shrink-0" size={15} />
-              <span className="min-w-0 min-[300px]:hidden">
+              <span className="min-w-0 min-[308px]:hidden">
                 {emailName}@<wbr />
                 {emailDomain}
               </span>
-              <span className="hidden min-[300px]:inline">{email}</span>
+              <span className="hidden min-[308px]:inline">{email}</span>
             </a>
           </section>
         </article>
