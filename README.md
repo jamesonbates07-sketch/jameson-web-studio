@@ -78,17 +78,16 @@ images: { unoptimized: true }
 
 This means there is no Node.js server, server action, API route or Pages Function to maintain after deployment. All routes are pre-rendered as static files.
 
-## Before publishing
+## Site configuration
 
-- Replace or confirm the contact email in `app/page.tsx` and `app/privacy/page.tsx`.
+- Confirm the production domain, contact email and demonstration URL in `lib/site.ts`.
 - Review the prices and package wording.
 - Review the privacy notice so it accurately matches the services, tools and data-handling practices used by the business.
-- Add the final production domain to the site metadata if required.
 
 ## Project link
 
 The featured Archway Barber Co. demonstration links to:
 
-<https://archway-barber-co.pages.dev/>
+<https://demo.jamesonwebstudio.co.uk/>
 
 The website clearly identifies this as a fictional portfolio demonstration, not a real client or trading business.
