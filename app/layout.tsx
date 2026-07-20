@@ -1,12 +1,19 @@
 import type { Metadata, Viewport } from "next";
+import {
+  SITE_EMAIL,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_IMAGE_URL,
+  absoluteUrl,
+} from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jameson-web-studio.pages.dev"),
-  applicationName: "Jameson Web Studio",
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: {
-    default: "Jameson Web Studio | Websites for North London businesses",
-    template: "%s | Jameson Web Studio",
+    default: `${SITE_NAME} | Websites for North London businesses`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
     "Modern, mobile-friendly websites for local businesses in North London. Custom-coded design, clear pricing and straightforward support.",
@@ -16,8 +23,13 @@ export const metadata: Metadata = {
     "local business web design",
     "freelance web designer London",
   ],
-  authors: [{ name: "Jameson Web Studio" }],
-  creator: "Jameson Web Studio",
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "Web design",
+  alternates: {
+    canonical: SITE_URL,
+  },
   manifest: "/brand/favicon/site.webmanifest",
   icons: {
     icon: [
@@ -45,28 +57,40 @@ export const metadata: Metadata = {
       },
     ],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Modern websites for local businesses",
+    title: `${SITE_NAME} | Modern websites for local businesses`,
     description:
       "Custom-coded, mobile-friendly websites for small businesses in North London.",
+    url: SITE_URL,
     type: "website",
     locale: "en_GB",
-    siteName: "Jameson Web Studio",
+    siteName: SITE_NAME,
     images: [
       {
-        url: "/brand/social/open-graph.png",
+        url: SOCIAL_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: "Jameson Web Studio — Modern websites for local businesses",
+        alt: `${SITE_NAME} — modern websites for local businesses`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Modern websites for local businesses",
+    title: `${SITE_NAME} | Modern websites for local businesses`,
     description:
       "Custom-coded, mobile-friendly websites for small businesses in North London.",
-    images: ["/brand/social/open-graph.png"],
+    images: [SOCIAL_IMAGE_URL],
   },
 };
 
@@ -76,6 +100,36 @@ export const viewport: Viewport = {
   themeColor: "#f2f0e9",
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: absoluteUrl("/icon.svg"),
+      email: SITE_EMAIL,
+      areaServed: {
+        "@type": "AdministrativeArea",
+        name: "North London",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description:
+        "Modern, mobile-friendly websites for local businesses in North London.",
+      inLanguage: "en-GB",
+      publisher: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -83,7 +137,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB">
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
+      </body>
     </html>
   );
 }

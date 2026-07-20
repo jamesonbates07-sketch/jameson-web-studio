@@ -1,14 +1,46 @@
 import { ArrowLeft, Mail } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  SITE_EMAIL,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_IMAGE_URL,
+  absoluteUrl,
+} from "@/lib/site";
 import { BrandLogo } from "../components/BrandLogo";
 
 export const metadata: Metadata = {
   title: "Privacy",
   description: "Privacy information for the Jameson Web Studio website.",
+  alternates: {
+    canonical: absoluteUrl("/privacy/"),
+  },
+  openGraph: {
+    title: `Privacy | ${SITE_NAME}`,
+    description: "Privacy information for the Jameson Web Studio website.",
+    url: absoluteUrl("/privacy/"),
+    type: "website",
+    locale: "en_GB",
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: SOCIAL_IMAGE_URL,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} — modern websites for local businesses`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Privacy | ${SITE_NAME}`,
+    description: "Privacy information for the Jameson Web Studio website.",
+    images: [SOCIAL_IMAGE_URL],
+  },
 };
 
-const email = "jamesonbates07@gmail.com";
+const email = SITE_EMAIL;
 
 export default function PrivacyPage() {
   return (
@@ -16,13 +48,13 @@ export default function PrivacyPage() {
       <header className="border-b border-ink/10">
         <div className="shell flex h-24 items-center justify-between gap-3">
           <Link
-            href="/"
+            href={SITE_URL}
             className="relative z-10 shrink-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4"
             aria-label="Jameson Web Studio home"
           >
             <BrandLogo priority />
           </Link>
-          <Link href="/" className="inline-flex shrink-0 items-center gap-2 rounded-full border border-ink/15 px-4 py-2.5 text-xs font-bold transition-colors hover:bg-white">
+          <Link href={SITE_URL} className="inline-flex shrink-0 items-center gap-2 rounded-full border border-ink/15 px-4 py-2.5 text-xs font-bold transition-colors hover:bg-white">
             <ArrowLeft size={14} /> Back to website
           </Link>
         </div>
@@ -32,7 +64,7 @@ export default function PrivacyPage() {
         <aside>
           <p className="text-xs font-black uppercase tracking-[0.18em] text-moss">Privacy</p>
           <h1 className="mt-5 font-display text-5xl font-black leading-[0.93] tracking-[-0.06em] sm:text-6xl">The plain-English version.</h1>
-          <p className="mt-6 text-sm leading-7 text-ink/55">Last updated: 18 July 2026</p>
+          <p className="mt-6 text-sm leading-7 text-ink/55">Last updated: 20 July 2026</p>
         </aside>
 
         <article className="privacy-copy rounded-[2rem] border border-ink/10 bg-white/50 p-6 sm:p-10 lg:p-14">
@@ -40,6 +72,13 @@ export default function PrivacyPage() {
             <h2>Overview</h2>
             <p>
               Jameson Web Studio respects your privacy. This notice explains what information may be received when you use this website or contact the studio, and how that information is handled.
+            </p>
+            <p>
+              This notice applies to{" "}
+              <a href={SITE_URL} className="font-bold text-moss underline decoration-moss/30 underline-offset-4 hover:decoration-moss">
+                jamesonwebstudio.co.uk
+              </a>
+              .
             </p>
           </section>
 
