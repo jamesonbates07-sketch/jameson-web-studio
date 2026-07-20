@@ -21,6 +21,7 @@ import {
   SITE_URL,
   absoluteUrl,
 } from "@/lib/site";
+import { BrandLogo } from "./components/BrandLogo";
 
 const email = SITE_EMAIL;
 const demoHost = new URL(DEMO_URL).hostname;
@@ -59,21 +60,6 @@ const process = [
     text: "After your revision round, I connect your domain and put the finished website live.",
   },
 ];
-
-function Logo() {
-  return (
-    <span className="inline-flex items-center gap-3" aria-label="Jameson Web Studio">
-      <span className="grid size-9 place-items-center rounded-[10px] bg-ink text-sm font-black tracking-[-0.08em] text-acid">
-        J.
-      </span>
-      <span className="text-[0.82rem] font-extrabold leading-[0.95] tracking-[-0.035em] text-ink">
-        Jameson
-        <br />
-        Web Studio
-      </span>
-    </span>
-  );
-}
 
 function SectionHeading({
   eyebrow,
@@ -190,12 +176,16 @@ export default function Home() {
       </a>
 
       <header className="absolute inset-x-0 top-0 z-50">
-        <div className="shell flex h-24 items-center justify-between">
-          <Link href={SITE_URL} className="relative z-10 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4">
-            <Logo />
+        <div className="shell flex h-24 items-center justify-between gap-3">
+          <Link
+            href={SITE_URL}
+            className="relative z-10 shrink-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4"
+            aria-label="Jameson Web Studio home"
+          >
+            <BrandLogo priority />
           </Link>
 
-          <nav className="hidden items-center gap-8 rounded-full border border-ink/10 bg-white/50 px-7 py-3.5 text-sm font-bold text-ink/65 backdrop-blur-md md:flex" aria-label="Main navigation">
+          <nav className="hidden shrink-0 items-center gap-8 rounded-full border border-ink/10 bg-white/50 px-7 py-3.5 text-sm font-bold text-ink/65 backdrop-blur-md md:flex" aria-label="Main navigation">
             <a className="transition-colors hover:text-ink" href={absoluteUrl("/#work")}>Work</a>
             <a className="transition-colors hover:text-ink" href={absoluteUrl("/#offer")}>Offer</a>
             <a className="transition-colors hover:text-ink" href={absoluteUrl("/#process")}>Process</a>
@@ -203,7 +193,7 @@ export default function Home() {
 
           <a
             href={reviewMailto}
-            className="group hidden items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white transition-transform hover:-translate-y-0.5 sm:inline-flex"
+            className="group hidden shrink-0 items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white transition-transform hover:-translate-y-0.5 sm:inline-flex"
           >
             Free website review
             <MoveUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={16} />
@@ -211,7 +201,7 @@ export default function Home() {
 
           <a
             href={absoluteUrl("/#contact")}
-            className="grid size-11 place-items-center rounded-full bg-ink text-white sm:hidden"
+            className="grid size-11 shrink-0 place-items-center rounded-full bg-ink text-white sm:hidden"
             aria-label="Go to contact section"
           >
             <ArrowDownRight size={19} />
@@ -474,7 +464,7 @@ export default function Home() {
       </main>
 
       <footer className="shell flex flex-col gap-6 py-10 text-xs text-ink/50 sm:flex-row sm:items-center sm:justify-between">
-        <Logo />
+        <BrandLogo />
         <p>
           Modern websites for independent businesses in North London.
           <br />

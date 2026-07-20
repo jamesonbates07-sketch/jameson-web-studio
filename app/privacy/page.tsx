@@ -8,6 +8,7 @@ import {
   SOCIAL_IMAGE_URL,
   absoluteUrl,
 } from "@/lib/site";
+import { BrandLogo } from "../components/BrandLogo";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -45,12 +46,15 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-paper text-ink">
       <header className="border-b border-ink/10">
-        <div className="shell flex h-24 items-center justify-between">
-          <Link href={SITE_URL} className="inline-flex items-center gap-3 text-sm font-black">
-            <span className="grid size-9 place-items-center rounded-[10px] bg-ink text-sm font-black tracking-[-0.08em] text-acid">J.</span>
-            Jameson Web Studio
+        <div className="shell flex h-24 items-center justify-between gap-3">
+          <Link
+            href={SITE_URL}
+            className="relative z-10 shrink-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4"
+            aria-label="Jameson Web Studio home"
+          >
+            <BrandLogo priority />
           </Link>
-          <Link href={SITE_URL} className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2.5 text-xs font-bold transition-colors hover:bg-white">
+          <Link href={SITE_URL} className="inline-flex shrink-0 items-center gap-2 rounded-full border border-ink/15 px-4 py-2.5 text-xs font-bold transition-colors hover:bg-white">
             <ArrowLeft size={14} /> Back to website
           </Link>
         </div>

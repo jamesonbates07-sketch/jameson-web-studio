@@ -30,8 +30,32 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  manifest: "/brand/favicon/site.webmanifest",
   icons: {
-    icon: absoluteUrl("/icon.svg"),
+    icon: [
+      {
+        url: "/brand/favicon/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/brand/favicon/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/brand/favicon/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/brand/favicon/favicon.ico",
+    apple: [
+      {
+        url: "/brand/favicon/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
   robots: {
     index: true,

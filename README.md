@@ -38,6 +38,23 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Brand asset review
+
+The proposed Jameson Web Studio logo system is organised under
+`public/brand/`. SVG is the master format; derived PNG, favicon, social, email
+and document files can be regenerated with:
+
+```bash
+npm run brand:generate
+```
+
+Start the development server and open
+[http://localhost:3000/brand-preview/](http://localhost:3000/brand-preview/) to
+review every logo version and the main usage examples. This internal route is
+set to `noindex,nofollow` and is not linked from the live site. The approved
+implementation branch connects the compact responsive header logo, favicon set,
+manifest and Open Graph image. Merge and deployment remain separate steps.
+
 ## Quality checks
 
 ```bash

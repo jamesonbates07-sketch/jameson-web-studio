@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="jameson-web-studio-gmail-profile-image-title jameson-web-studio-gmail-profile-image-description">
+  <title id="jameson-web-studio-gmail-profile-image-title">Jameson Web Studio Gmail profile image</title>
+  <desc id="jameson-web-studio-gmail-profile-image-description">A profile-safe Jameson Web Studio icon on a warm neutral background.</desc>
+  <rect width="1000" height="1000" fill="#F2F0E9"/>
+  <circle cx="500" cy="500" r="390" fill="#D8FF3E"/>
+  <g transform="translate(260 260) scale(7.5)">
+    <rect x="0" y="0" width="64" height="64" rx="16" fill="#171914" stroke="none" stroke-width="0"/>
+    <path d="M20 15h24v8H31v13c0 8.7-4.7 13-13.8 13H14v-8h3.2c3.9 0 5.8-1.8 5.8-5.4V23h-3V15Z" fill="#D8FF3E"/>
+    <circle cx="44" cy="45" r="4" fill="#D8FF3E"/>
+  </g>
+</svg>
