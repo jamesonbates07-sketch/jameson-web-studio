@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-const email = "jamesonbates07@gmail.com";
+const email = "jamesonwebstudio@gmail.com";
 const reviewMailto = `mailto:${email}?subject=${encodeURIComponent(
   "Free website review request",
 )}&body=${encodeURIComponent(
