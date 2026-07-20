@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Privacy information for the Jameson Web Studio website.",
 };
 
-const email = "jamesonbates07@gmail.com";
+const email = "jamesonwebstudio@gmail.com";
 
 export default function PrivacyPage() {
   return (
