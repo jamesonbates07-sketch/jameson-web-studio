@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Jameson Web Studio</title>
+  <desc id="description">Modern websites for local businesses in North London.</desc>
+  <rect width="1200" height="630" fill="#f2f0e9"/>
+  <path d="M0 505C219 434 407 422 565 466c188 52 365 44 635-75v239H0Z" fill="#d9ff43"/>
+  <circle cx="1072" cy="95" r="138" fill="#173f35"/>
+  <circle cx="1072" cy="95" r="76" fill="#f2f0e9" opacity=".12"/>
+  <g transform="translate(78 72)">
+    <rect width="86" height="86" rx="22" fill="#171914"/>
+    <text x="43" y="58" fill="#d9ff43" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900" text-anchor="middle">J.</text>
+    <text x="110" y="34" fill="#171914" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">JAMESON</text>
+    <text x="110" y="70" fill="#171914" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">WEB STUDIO</text>
+  </g>
+  <text x="78" y="288" fill="#171914" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900" letter-spacing="-4">Modern websites</text>
+  <text x="78" y="372" fill="#173f35" font-family="Georgia, Times New Roman, serif" font-size="76" font-style="italic">for local businesses.</text>
+  <text x="82" y="444" fill="#171914" opacity=".68" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600">Custom-coded design · North London</text>
+  <text x="82" y="575" fill="#171914" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">jamesonwebstudio.co.uk</text>
+</svg>

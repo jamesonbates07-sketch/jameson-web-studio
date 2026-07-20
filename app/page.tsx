@@ -15,8 +15,15 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
+import {
+  DEMO_URL,
+  SITE_EMAIL,
+  SITE_URL,
+  absoluteUrl,
+} from "@/lib/site";
 
-const email = "jamesonwebstudio@gmail.com";
+const email = SITE_EMAIL;
+const demoHost = new URL(DEMO_URL).hostname;
 const reviewMailto = `mailto:${email}?subject=${encodeURIComponent(
   "Free website review request",
 )}&body=${encodeURIComponent(
@@ -105,7 +112,7 @@ function BarberPreview() {
           <span className="size-2.5 rounded-full bg-[#64c85b]" />
         </div>
         <span className="rounded-full bg-black/[0.06] px-4 py-1 text-[0.55rem] font-semibold tracking-wide text-black/45">
-          archway-barber-co.pages.dev
+          {demoHost}
         </span>
         <div className="w-10" />
       </div>
@@ -176,7 +183,7 @@ export default function Home() {
   return (
     <>
       <a
-        href="#main-content"
+        href={absoluteUrl("/#main-content")}
         className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition-transform focus:translate-y-0"
       >
         Skip to content
@@ -184,14 +191,14 @@ export default function Home() {
 
       <header className="absolute inset-x-0 top-0 z-50">
         <div className="shell flex h-24 items-center justify-between">
-          <Link href="/" className="relative z-10 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4">
+          <Link href={SITE_URL} className="relative z-10 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4">
             <Logo />
           </Link>
 
           <nav className="hidden items-center gap-8 rounded-full border border-ink/10 bg-white/50 px-7 py-3.5 text-sm font-bold text-ink/65 backdrop-blur-md md:flex" aria-label="Main navigation">
-            <a className="transition-colors hover:text-ink" href="#work">Work</a>
-            <a className="transition-colors hover:text-ink" href="#offer">Offer</a>
-            <a className="transition-colors hover:text-ink" href="#process">Process</a>
+            <a className="transition-colors hover:text-ink" href={absoluteUrl("/#work")}>Work</a>
+            <a className="transition-colors hover:text-ink" href={absoluteUrl("/#offer")}>Offer</a>
+            <a className="transition-colors hover:text-ink" href={absoluteUrl("/#process")}>Process</a>
           </nav>
 
           <a
@@ -203,7 +210,7 @@ export default function Home() {
           </a>
 
           <a
-            href="#contact"
+            href={absoluteUrl("/#contact")}
             className="grid size-11 place-items-center rounded-full bg-ink text-white sm:hidden"
             aria-label="Go to contact section"
           >
@@ -246,7 +253,7 @@ export default function Home() {
                     <ArrowRight size={17} strokeWidth={2.7} className="transition-transform group-hover:translate-x-1" />
                   </a>
                   <a
-                    href="#work"
+                    href={absoluteUrl("/#work")}
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-4 text-sm font-extrabold text-ink transition-colors hover:bg-white/55"
                   >
                     See featured work
@@ -319,7 +326,7 @@ export default function Home() {
                 ))}
               </div>
               <a
-                href="https://archway-barber-co.pages.dev/"
+                href={DEMO_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="group inline-flex shrink-0 items-center gap-3 self-start rounded-full bg-white px-6 py-3.5 text-sm font-black text-ink transition-transform hover:-translate-y-0.5"
@@ -468,9 +475,15 @@ export default function Home() {
 
       <footer className="shell flex flex-col gap-6 py-10 text-xs text-ink/50 sm:flex-row sm:items-center sm:justify-between">
         <Logo />
-        <p>Modern websites for independent businesses in North London.</p>
-        <div className="flex gap-5 font-bold">
-          <Link className="hover:text-ink" href="/privacy/">Privacy</Link>
+        <p>
+          Modern websites for independent businesses in North London.
+          <br />
+          <a className="font-bold hover:text-ink" href={SITE_URL}>
+            jamesonwebstudio.co.uk
+          </a>
+        </p>
+        <div className="flex flex-wrap gap-5 font-bold">
+          <Link className="hover:text-ink" href={absoluteUrl("/privacy/")}>Privacy</Link>
           <a className="hover:text-ink" href={`mailto:${email}`}>Email</a>
         </div>
       </footer>
