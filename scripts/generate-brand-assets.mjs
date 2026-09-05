@@ -507,3 +507,6 @@ await renderPng(
 );
 
 console.log(`Generated Jameson Web Studio brand assets in ${root}`);
+
+// Apply the current website social card after generating the unchanged brand pack.
+await import("./generate-social-card.mjs");

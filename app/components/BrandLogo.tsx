@@ -1,24 +1,18 @@
-import Image from "next/image";
-
+/* Original SVG artwork. The browser selects the approved theme variant. */
 export function BrandLogo({ priority = false }: { priority?: boolean }) {
   return (
-    <span className="inline-flex shrink-0 items-center" aria-hidden="true">
-      <Image
-        className="hidden h-auto w-[10.5rem] min-[360px]:block"
+    <picture className="brand-logo">
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcSet="/brand/svg/logo-compact-on-dark.svg"
+      />
+      <img
         src="/brand/svg/logo-compact-full-colour.svg"
-        width={168}
-        height={56}
+        width="168"
+        height="56"
         alt=""
-        priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
       />
-      <Image
-        className="size-[2.625rem] min-[360px]:hidden"
-        src="/brand/svg/icon-square-full-colour.svg"
-        width={42}
-        height={42}
-        alt=""
-        priority={priority}
-      />
-    </span>
+    </picture>
   );
 }

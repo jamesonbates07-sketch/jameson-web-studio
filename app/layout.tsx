@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Geist } from "next/font/google";
 import {
   SITE_EMAIL,
   SITE_NAME,
@@ -7,6 +8,12 @@ import {
   absoluteUrl,
 } from "@/lib/site";
 import "./globals.css";
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -81,7 +88,7 @@ export const metadata: Metadata = {
         url: SOCIAL_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — modern websites for local businesses`,
+        alt: `${SITE_NAME} | modern websites for local businesses`,
       },
     ],
   },
@@ -97,7 +104,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f2f0e9",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2f0e9" },
+    { media: "(prefers-color-scheme: dark)", color: "#171914" },
+  ],
 };
 
 const structuredData = {
@@ -108,7 +118,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      logo: absoluteUrl("/icon.svg"),
+      logo: absoluteUrl("/brand/svg/icon-square-full-colour.svg"),
       email: SITE_EMAIL,
       areaServed: {
         "@type": "AdministrativeArea",
@@ -137,7 +147,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB">
-      <body>
+      <body className={geist.variable}>
         {children}
         <script
           type="application/ld+json"

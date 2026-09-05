@@ -1,110 +1,49 @@
 # Jameson Web Studio
 
-A polished, responsive one-page portfolio for a freelance web design service based in North London. Built with Next.js, TypeScript and Tailwind CSS, with a fully static production export for GitHub and Cloudflare Pages.
+A responsive studio website for independent businesses in North London. Built with Next.js, TypeScript, Tailwind CSS and a static export for Cloudflare Pages.
 
-## What is included
+## Website
 
-- One-page studio portfolio with clear service positioning and calls to action
-- Featured Archway Barber Co. portfolio demonstration
-- Transparent fictional-project notice
-- £350 launch offer and full package breakdown
-- Three-step process and optional website care offer
-- Email links pre-filled for a free website review request
-- Separate privacy page at `/privacy/`
-- Responsive, accessible layout with reduced-motion support
-- Static export configuration in `next.config.ts`
+- Approved Jameson logo and paper, charcoal and lime identity
+- Geist typography, system light/dark themes and reduced-motion support
+- Perranvale Publishing homepage case study with authentic desktop, phone and book-page captures
+- Websites from £350, one consolidated revision round, optional £39/month care
+- Existing prefilled free-review email route, with no form backend or trackers
+- Existing `/privacy/`, `/brand-preview/`, `#work`, `#offer`, `#process` and `#contact` destinations
+- Native mobile navigation that also works without JavaScript
 
-## Tech stack
-
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS 4
-- Lucide icons
-- Static HTML export
-
-## Run locally
-
-Install dependencies:
+## Develop and check
 
 ```bash
-npm install
-```
-
-Start the development server:
-
-```bash
+npm ci
 npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Brand asset review
-
-The proposed Jameson Web Studio logo system is organised under
-`public/brand/`. SVG is the master format; derived PNG, favicon, social, email
-and document files can be regenerated with:
-
-```bash
-npm run brand:generate
-```
-
-Start the development server and open
-[http://localhost:3000/brand-preview/](http://localhost:3000/brand-preview/) to
-review every logo version and the main usage examples. This internal route is
-set to `noindex,nofollow` and is not linked from the live site. The approved
-implementation branch connects the compact responsive header logo, favicon set,
-manifest and Open Graph image. Merge and deployment remain separate steps.
-
-## Quality checks
-
-```bash
 npm run lint
 npm run typecheck
 npm run build
 ```
 
-`npm run build` creates the deployable static site in the `out` directory.
+The build creates `out/`. It uses `output: "export"`, `trailingSlash: true` and pre-generated image variants. There is no production Node server or image-optimisation endpoint. A local static preview can be served with `python3 -m http.server 4173 --directory out`.
 
-## Deploy to Cloudflare Pages from GitHub
+## Assets
 
-1. Create a GitHub repository and push this project to the `main` branch.
-2. In Cloudflare, open **Workers & Pages**, choose **Create application**, select the **Pages** tab, then choose **Import an existing Git repository**.
-3. Connect the GitHub repository and use these build settings:
+The existing SVG brand pack is preserved under `public/brand/`. `npm run brand:generate` regenerates the pack, followed by the refreshed website social card. `npm run social:generate` regenerates only the 1200 × 630 Open Graph SVG and PNG from the original logo and real project screenshot.
 
-| Setting | Value |
-| --- | --- |
-| Production branch | `main` |
-| Framework preset | `Next.js (Static HTML Export)` |
-| Build command | `npm run build` |
-| Build output directory | `out` |
-| Root directory | `/` |
+Project captures in `public/work/perranvale/` show the actual [Perranvale Publishing website](https://www.perranvalepublishing.com/). They are WebP variants, not generated interfaces. See `docs/asset-provenance.md` for capture details. No client testimonial or commercial-performance metric is claimed.
 
-No environment variables are required. The `.node-version` file pins Node.js `22.16.0` for Cloudflare's build environment.
+The decorative care-section paper image is generated artwork, kept separate from project evidence.
 
-After deployment, Cloudflare Pages will create a `*.pages.dev` address and automatically build new commits and pull-request previews from GitHub.
+## Preview and release
 
-## Static export notes
+The existing Cloudflare Pages project is `jameson-web-studio`. Current hosting uses direct uploads, not automatic GitHub builds. Its production branch is `main`; use a named non-production branch for review:
 
-The project uses:
-
-```ts
-output: "export"
-trailingSlash: true
-images: { unoptimized: true }
+```bash
+wrangler pages deploy out --project-name jameson-web-studio --branch redesign-perranvale-refresh
 ```
 
-This means there is no Node.js server, server action, API route or Pages Function to maintain after deployment. All routes are pre-rendered as static files.
+Cloudflare supplies `X-Robots-Tag: noindex` for preview deployments. Verify that response header after upload. `/brand-preview/` remains unlinked and `noindex,nofollow`. Production canonicals, robots and sitemap continue to use `https://jamesonwebstudio.co.uk`.
 
-## Site configuration
+Production release follows review approval. Preserve the previous production deployment in Cloudflare for rollback. Do not change DNS for this visual refresh.
 
-- Confirm the production domain, contact email and demonstration URL in `lib/site.ts`.
-- Review the prices and package wording.
-- Review the privacy notice so it accurately matches the services, tools and data-handling practices used by the business.
+## Configuration
 
-## Project link
-
-The featured Archway Barber Co. demonstration links to:
-
-<https://demo.jamesonwebstudio.co.uk/>
-
-The website clearly identifies this as a fictional portfolio demonstration, not a real client or trading business.
+Site identity, email, Perranvale link and prefilled enquiry message live in `lib/site.ts`. No environment variables are required. The Cloudflare Node build version remains in `.node-version`.

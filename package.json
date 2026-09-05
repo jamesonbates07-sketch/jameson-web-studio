@@ -8,13 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "social:generate": "node scripts/generate-social-card.mjs"
   },
   "dependencies": {
     "lucide-react": "1.25.0",
-    "next": "16.2.10",
-    "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "motion": "^13.2.0",
+    "next": "^16.3.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
@@ -22,7 +24,8 @@
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.5",
-    "eslint-config-next": "16.2.10",
+    "eslint-config-next": "^16.3.4",
+    "sharp": "^0.35.3",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3"
   }
