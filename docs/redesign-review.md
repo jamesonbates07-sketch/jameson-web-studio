@@ -10,9 +10,11 @@ Branch alias: https://redesign-perranvale-refresh.jameson-web-studio.pages.dev
 
 The refreshed homepage uses the approved studio logo, Geist, semantic light/dark themes and authentic Perranvale Publishing project captures. The six sections, navigation labels, anchors, email destination and prefilled review message are preserved. The Privacy page follows the new typography and theme while retaining its policy wording. Social artwork uses the real project screenshot.
 
-This is a preview deployment only. The live domain and production branch are unchanged. Cloudflare's preview response includes `X-Robots-Tag: noindex`; the internal brand preview retains its own `noindex,nofollow` metadata. Public canonicals and structured data retain the production domain.
+Jameson approved production release on 5 September 2026 after reviewing the preview. PR #6 was merged to `main` as `8b2f5b2`, and the previously verified static export was published to https://jamesonwebstudio.co.uk/ through the existing Pages project. Production deployment: https://cad06717.jameson-web-studio.pages.dev.
 
-Previous production deployment retained for rollback: `9664ff8f-40ad-4dd4-bb82-afe5c60a7e65`, source `892c7aa`, https://9664ff8f.jameson-web-studio.pages.dev. Production release follows review approval. No DNS change is needed.
+The custom domain serves the new Perranvale homepage and remains indexable. Cloudflare's preview response still includes `X-Robots-Tag: noindex`; the internal brand preview retains its own `noindex,nofollow` metadata. Public canonicals and structured data retain the production domain. The existing domain email-protection feature rewrites email markup; browser verification confirmed every review button retains the correct decoded recipient, subject and prefilled message.
+
+Previous production deployment retained for rollback: `9664ff8f-40ad-4dd4-bb82-afe5c60a7e65`, source `892c7aa`, https://9664ff8f.jameson-web-studio.pages.dev. No DNS change was needed.
 
 ## Verification
 
