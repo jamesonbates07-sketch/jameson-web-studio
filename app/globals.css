@@ -602,9 +602,6 @@ svg {
   .hero-copy {
     animation: enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .hero-visual {
-    animation: enter 0.8s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
   @keyframes enter {
     from {
       transform: translateY(14px);
@@ -761,7 +758,7 @@ svg {
     padding: 20px 0 20px 16px;
   }
   .hero-visual img {
-    border-radius: 12px;
+    border-radius: 16px;
   }
   .project-meta {
     font-size: 0.7rem;
