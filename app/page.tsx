@@ -79,14 +79,14 @@ const steps = [
 ];
 
 const marqueeWords = [
-  "Cafés",
-  "independent shops",
-  "Publishers",
-  "salons & studios",
-  "Trades",
-  "restaurants",
-  "Practitioners",
-  "makers",
+  "Mobile-first",
+  "one point of contact",
+  "Clear pricing",
+  "basic SEO included",
+  "Your domain",
+  "built in North London",
+  "Private preview",
+  "personal support",
 ];
 
 const aboutText =
@@ -192,6 +192,11 @@ export default function Home() {
   return (
     <div className={`bp ${serif.variable} ${mono.variable}`}>
       <script
+        dangerouslySetInnerHTML={{
+          __html: `try{var t=localStorage.getItem("jws-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}`,
+        }}
+      />
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(pageSchema).replace(/</g, "\\u003c"),
@@ -221,6 +226,20 @@ export default function Home() {
               <a href="#process">Process</a>
               <a href="#care">Care</a>
             </div>
+            <details className="mnav">
+              <summary aria-label="Menu">
+                <span className="mnav-icon" aria-hidden="true" />
+                Menu
+              </summary>
+              <div className="mnav-panel">
+                <a href="#work">Work</a>
+                <a href="#offer">Offer</a>
+                <a href="#about">About</a>
+                <a href="#process">Process</a>
+                <a href="#care">Care</a>
+                <a href="#contact">Contact</a>
+              </div>
+            </details>
           </nav>
           <div className="nav-pill">
             <button className="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
@@ -282,11 +301,13 @@ export default function Home() {
             <div
               className="machine fade-in"
               id="machine"
-              data-stage="1"
+              data-stage="3"
               style={{ animationDelay: ".3s" }}
-              role="img"
-              aria-label="Animated demo: the Perranvale Publishing website going from layout, to design, to live on desktop and phone"
             >
+              <p className="sr-only">
+                Demo: the Perranvale Publishing website shown as a layout, then a design, then live on desktop and
+                phone. Use the buttons to switch stage.
+              </p>
               <div className="mc-tag" aria-hidden="true">
                 <i /> A website, considered from every angle
               </div>
@@ -338,13 +359,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="mc-steps" role="group" aria-label="Demo stage">
-                <button type="button" data-s="1" aria-pressed="true">
+                <button type="button" data-s="1" aria-pressed="false">
                   Layout
                 </button>
                 <button type="button" data-s="2" aria-pressed="false">
                   Design
                 </button>
-                <button type="button" data-s="3" aria-pressed="false">
+                <button type="button" data-s="3" aria-pressed="true">
                   Live
                 </button>
                 <span className="prog" aria-hidden="true">
@@ -632,7 +653,7 @@ export default function Home() {
               </div>
               <div className="care-body">
                 <div className="sm">Studio care · content refinement</div>
-                <div className="care-h" aria-live="polite">
+                <div className="care-h">
                   Designed around your
                   <br />
                   <span className="care-swap">
@@ -642,7 +663,7 @@ export default function Home() {
                   .
                 </div>
                 <div className="care-status">
-                  <span className="status-pill" id="careStatus">
+                  <span className="status-pill" id="careStatus" role="status">
                     <i />
                     <span id="careStatusText">Editing…</span>
                   </span>

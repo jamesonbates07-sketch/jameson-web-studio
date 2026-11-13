@@ -54,6 +54,7 @@ export function HomeEffects() {
       let stage = 1;
       let auto = !reduce;
       let t0 = performance.now();
+      let last = 0;
       const DUR = 2800;
       const setStage = (s: number) => {
         stage = s;
@@ -68,9 +69,18 @@ export function HomeEffects() {
           setStage(Number(b.dataset.s));
         }),
       );
-      if (reduce) setStage(3);
+      setStage(reduce ? 3 : 1);
+      let visible = true;
+      // Pause the demo while it is off screen or the tab is hidden.
+      const vis = new IntersectionObserver((es) => {
+        visible = es[0]?.isIntersecting ?? true;
+      });
+      vis.observe(machine);
+      cleanups.push(() => vis.disconnect());
       const loop = (now: number) => {
-        if (auto) {
+        if (!visible || document.hidden) t0 += now - (last || now);
+        last = now;
+        if (auto && visible && !document.hidden) {
           const p = Math.min((now - t0) / DUR, 1);
           prog.style.width = `${((stage - 1 + p) / 3) * 100}%`;
           if (p >= 1) setStage((stage % 3) + 1);
@@ -79,6 +89,11 @@ export function HomeEffects() {
       };
       raf = requestAnimationFrame(loop);
     }
+
+    // Close the mobile menu after choosing a link
+    document.querySelectorAll(".mnav-panel a").forEach((a) =>
+      onEl(a, "click", () => document.querySelector(".mnav")?.removeAttribute("open")),
+    );
 
     // Reveal on scroll
     root.classList.add("js-reveal");

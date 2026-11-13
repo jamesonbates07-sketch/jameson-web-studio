@@ -78,7 +78,7 @@
 .theme-btn{width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--text);cursor:pointer;display:grid;place-items:center}
 .theme-btn:hover{background:var(--raised)}
 .theme-btn svg{width:18px;height:18px}
-@media (max-width:860px){.nav-links{display:none}.logo span{display:none}}
+@media (max-width:860px){.nav-links{display:none}.mnav{display:block}.logo span{display:none}}
 @media (max-width:420px){.nav-cta .lbl-long{display:none}}
 
 /* ---------- Hero ---------- */
@@ -191,7 +191,7 @@
 .case-stat{border-top:1px solid #2b2e27;padding-top:18px}
 .case-stat b{display:block;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;font-weight:600;margin-bottom:6px}
 .case-stat span{color:#a3a698;font-size:15px}
-.case-note{color:#7d8073;font-size:13px;margin-top:28px}
+.case-note{color:#a3a698;font-size:13px;margin-top:28px}
 @media (max-width:860px){.case-grid,.case-stats{grid-template-columns:1fr}.case-stage{aspect-ratio:4/3.4}.case-cap{justify-content:flex-end}.case-cap span.chip{display:none}}
 @media (max-width:480px){.phone-card{grid-template-columns:1fr}.phone{margin:0 auto}}
 
@@ -239,8 +239,8 @@
 
 /* ---------- About ---------- */
 .about-quote{font-size:clamp(30px,4.4vw,64px);line-height:1.04;letter-spacing:-.04em;font-weight:500;max-width:18em;margin:22px 0 clamp(50px,7vw,90px)}
-.about-quote .w{opacity:.14;transition:opacity .25s}
-.about-quote .w.on{opacity:1}
+.js-reveal .about-quote .w{opacity:.14;transition:opacity .25s}
+.js-reveal .about-quote .w.on{opacity:1}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
 .pillar{border:1px solid var(--line);border-radius:24px;padding:28px;background:var(--card);transition:transform .5s var(--ease),border-color .3s}
 .pillar:hover{transform:translateY(-6px);border-color:var(--text)}
@@ -314,7 +314,7 @@
 .chips input:checked + label{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .chips input:focus-visible + label{outline:2px solid var(--accent);outline-offset:2px}
 .form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:22px}
-.form-foot small{color:#7d8073;font-size:13px;flex:1;min-width:200px}
+.form-foot small{color:#a3a698;font-size:13px;flex:1;min-width:200px}
 .copy-mail{display:flex;align-items:center;gap:10px;margin-top:22px;padding-top:20px;border-top:1px solid #2e3129;color:#a3a698;font-size:14px;flex-wrap:wrap}
 .copy-mail a{font-family:var(--mono);color:#eeede6;font-size:14px;text-decoration:underline;text-underline-offset:3px}
 .copy-mail button{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;background:transparent;border:1px solid #33362e;color:#eeede6;border-radius:999px;padding:7px 12px;cursor:pointer}
@@ -363,3 +363,16 @@
 }
 :root[data-theme="dark"] .bp .logo-light{display:none}
 :root[data-theme="dark"] .bp .logo-dark{display:block}
+
+/* Mobile menu: native <details>, so it works without JavaScript */
+.mnav{display:none;position:relative}
+.mnav summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:999px;font-size:14px;color:var(--text)}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav summary:hover,.mnav[open] summary{background:var(--raised)}
+.mnav-icon{width:14px;height:10px;position:relative;border-block:1.6px solid currentColor}
+.mnav-icon::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.6px;margin-top:-.8px;background:currentColor}
+.mnav-panel{position:absolute;top:calc(100% + 12px);left:-6px;min-width:210px;display:grid;padding:8px;border-radius:20px;background:var(--surface);border:1px solid var(--line);box-shadow:0 24px 50px -20px rgba(0,0,0,.35)}
+.mnav-panel a{text-decoration:none;padding:12px 14px;border-radius:12px;font-size:17px}
+.mnav-panel a:hover{background:var(--raised)}
+@media (max-width:420px){.logo b{display:none}.logo{padding-right:4px}}
+@media (max-width:860px){.bp .mnav{display:block}}
