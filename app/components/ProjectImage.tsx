@@ -18,8 +18,12 @@ export function ProjectImage({
   sizes,
 }: ProjectImageProps) {
   const [width, height] = dimensions[name];
-  const widths = name === "mobile" ? [390] : [720, 1080, 1440];
-  return (
+  const widths = name === "mobile" ? [160, 260, 390] : [720, 1080, 1440];
+  const modern = name === "desktop" && priority;
+  const sourceSet = widths
+    .map((w) => `/work/perranvale/${name}-${w}.avif ${w}w`)
+    .join(", ");
+  const image = (
     // Static export has no image server; variants are generated ahead of the build.
     // eslint-disable-next-line @next/next/no-img-element
     <img
@@ -33,8 +37,26 @@ export function ProjectImage({
       height={height}
       alt={alt}
       loading={priority ? "eager" : "lazy"}
-      fetchPriority={priority ? "high" : "auto"}
+      fetchPriority={priority && !modern ? "high" : "auto"}
       decoding="async"
     />
+  );
+  if (!modern) return image;
+  return (
+    <>
+      <link
+        rel="preload"
+        as="image"
+        type="image/avif"
+        href={`/work/perranvale/${name}-${widths[0]}.avif`}
+        imageSrcSet={sourceSet}
+        imageSizes={sizes}
+        fetchPriority="high"
+      />
+      <picture className="project-picture">
+        <source type="image/avif" srcSet={sourceSet} sizes={sizes} />
+        {image}
+      </picture>
+    </>
   );
 }

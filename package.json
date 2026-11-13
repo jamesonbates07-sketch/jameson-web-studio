@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "social:generate": "node scripts/generate-social-card.mjs"
+    "social:generate": "node scripts/generate-social-card.mjs",
+    "assets:optimize": "node scripts/optimize-project-images.mjs"
   },
   "dependencies": {
     "lucide-react": "1.25.0",

@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   title: {
-    default: `${SITE_NAME} | Websites for North London businesses`,
+    default: `Independent web designer in North London | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Modern, mobile-friendly websites for local businesses in North London. Custom-coded design, clear pricing and straightforward support.",
+    "Independent web design in North London. Websites from £350, optional £39/month care and personal support from Jameson. Start with a free website review.",
   keywords: [
     "web designer North London",
     "small business website",
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${SITE_NAME} | Modern websites for local businesses`,
+    title: `Small business. Big presence. | ${SITE_NAME}`,
     description:
-      "Custom-coded, mobile-friendly websites for small businesses in North London.",
+      "Independent web design by Jameson. Mobile-friendly websites from £350, optional care and a clear process from brief to launch.",
     url: SITE_URL,
     type: "website",
     locale: "en_GB",
@@ -88,15 +88,15 @@ export const metadata: Metadata = {
         url: SOCIAL_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} | modern websites for local businesses`,
+        alt: `${SITE_NAME}: Small business. Big presence.`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} | Modern websites for local businesses`,
+    title: `Small business. Big presence. | ${SITE_NAME}`,
     description:
-      "Custom-coded, mobile-friendly websites for small businesses in North London.",
+      "Independent web design by Jameson. Mobile-friendly websites from £350, optional care and a clear process from brief to launch.",
     images: [SOCIAL_IMAGE_URL],
   },
 };
@@ -118,12 +118,11 @@ const structuredData = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      logo: absoluteUrl("/brand/svg/icon-square-full-colour.svg"),
+      logo: absoluteUrl("/brand/png/icon-square-512.png"),
       email: SITE_EMAIL,
-      areaServed: {
-        "@type": "AdministrativeArea",
-        name: "North London",
-      },
+      areaServed: { "@type": "AdministrativeArea", name: "North London" },
+      description:
+        "An independent web design studio personally managed by Jameson in North London.",
     },
     {
       "@type": "WebSite",
@@ -131,11 +130,9 @@ const structuredData = {
       url: SITE_URL,
       name: SITE_NAME,
       description:
-        "Modern, mobile-friendly websites for local businesses in North London.",
+        "Independent web design for small businesses in North London.",
       inLanguage: "en-GB",
-      publisher: {
-        "@id": `${SITE_URL}/#organization`,
-      },
+      publisher: { "@id": `${SITE_URL}/#organization` },
     },
   ],
 };

@@ -19,3 +19,10 @@ File: `public/images/care-paper.webp` (1200 × 800).
 Created with the built-in imagegen tool, then resized and compressed. This is abstract decorative artwork, not a photograph of the studio or client work. It has empty alternative text.
 
 Prompt: “Use case: stylized-concept. Asset type: small decorative still life for a web design studio's website care section. Landscape 3:2. A sculptural loop of matte chartreuse paper, acid lime #D8FF3E, resting on a warm charcoal #171914 surface. One folded paper strip forming a gentle continuous arch, beautifully lit from the upper left, realistic paper texture, restrained soft shadow, abundant charcoal negative space. Minimal editorial product photography, close crop, tangible and quiet. No lettering, text, logo, screens, devices, people, interface, office, gradients, glowing lights, or additional colours. This is an abstract decorative material study, never client work or proof of results.”
+
+
+## 13 November 2026 responsive refinement
+
+Added 160px and 260px phone variants derived directly from the existing genuine 390px Perranvale capture, using Sharp WebP quality 80. Regenerate with `npm run assets:optimize`. Hero and case-study sizes now reflect their displayed widths. Added desktop AVIF variants at 720, 1080 and 1440px (quality 55) for the hero, with the original WebP captures as format fallbacks. The hero uses a format-specific responsive preload. Original desktop, phone and book-page captures remain preserved. Launch-era captures are identified as such on the case study; no results are inferred from them.
+
+The new `public/social/studio-presence.png` sharing image combines the existing on-dark SVG logo, the retained headline and the genuine desktop capture. Regenerate with `npm run social:generate`. The original logo masters are unchanged.

@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { useRef } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { REVIEW_MAILTO } from "@/lib/site";
 import { BrandLogo } from "./BrandLogo";
 
 export function Header() {
@@ -25,7 +24,7 @@ export function Header() {
           <Link href="/#offer">Offer</Link>
           <Link href="/#process">Process</Link>
         </nav>
-        <a className="button button-quiet header-review" href={REVIEW_MAILTO}>
+        <a className="button button-quiet header-review" href="#contact">
           Free website review <ArrowUpRight size={16} />
         </a>
         <details
@@ -52,7 +51,7 @@ export function Header() {
             <Link href="/#process" onClick={() => close()}>
               Process <ArrowUpRight size={18} />
             </Link>
-            <a href={REVIEW_MAILTO} onClick={() => close()}>
+            <a href="#contact" onClick={() => close()}>
               Free website review <ArrowUpRight size={18} />
             </a>
           </nav>

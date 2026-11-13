@@ -7,11 +7,14 @@ import {
   PencilRuler,
   Rocket,
 } from "lucide-react";
-import { PROJECT_URL, REVIEW_MAILTO, SITE_EMAIL } from "@/lib/site";
+import { PROJECT_URL, SITE_EMAIL, SITE_URL, SITE_NAME } from "@/lib/site";
 import { Header } from "./components/Header";
 import { BrandLogo } from "./components/BrandLogo";
 import { ProjectImage } from "./components/ProjectImage";
 import { Reveal } from "./components/Reveal";
+import { WebsiteStage } from "./components/WebsiteStage";
+import { ReviewContact } from "./components/ReviewContact";
+import { CareStudio } from "./components/CareStudio";
 
 const inclusions = [
   {
@@ -47,36 +50,64 @@ export default function Home() {
         Skip to content
       </a>
       <Header />
-      <main id="main-content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": `${SITE_URL}/#webpage`,
+                url: `${SITE_URL}/`,
+                name: `Independent web designer in North London | ${SITE_NAME}`,
+                isPartOf: { "@id": `${SITE_URL}/#website` },
+                about: { "@id": `${SITE_URL}/#website-design` },
+                inLanguage: "en-GB",
+              },
+              {
+                "@type": "Service",
+                "@id": `${SITE_URL}/#website-design`,
+                name: "Small business website design and development",
+                serviceType: "Website design and development",
+                url: `${SITE_URL}/#offer`,
+                provider: { "@id": `${SITE_URL}/#organization` },
+                areaServed: {
+                  "@type": "AdministrativeArea",
+                  name: "North London",
+                },
+                description:
+                  "Mobile-friendly websites of up to five standard pages, basic on-page SEO, one consolidated revision round and launch support. Starting from £350; additional scope quoted separately.",
+              },
+            ],
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
+      <main id="main-content" tabIndex={-1}>
         <section className="hero" aria-labelledby="hero-title">
           <div className="shell hero-layout">
             <div className="hero-copy">
-              <p className="eyebrow">Independent web design</p>
+              <p className="eyebrow">Independent web design. North London.</p>
               <h1 id="hero-title">
-                Websites for
-                <br className="desktop-break" /> independent businesses.
+                Small business.
+                <br />
+                <span>Big presence.</span>
               </h1>
               <p className="hero-description">
-                I design and build clear, mobile-friendly websites, with
-                straightforward pricing and personal support from brief to
-                launch.
+                Thoughtful websites for independent businesses. Designed around
+                your customers. Built by Jameson.
               </p>
               <div className="hero-actions">
-                <a className="button button-primary" href={REVIEW_MAILTO}>
+                <a className="button button-primary" href="#contact">
                   Free website review <ArrowUpRight size={18} />
                 </a>
-                <a className="button button-outline" href="#work">
+                <a className="hero-work-link" href="#work">
                   View work <ArrowRight size={18} />
                 </a>
               </div>
             </div>
             <div className="hero-visual">
-              <ProjectImage
-                name="desktop"
-                alt="Perranvale Publishing website, designed by Jameson Web Studio, showing the South Bank book introduction"
-                sizes="(max-width: 767px) 100vw, 50vw"
-                priority
-              />
+              <WebsiteStage />
             </div>
           </div>
         </section>
@@ -88,34 +119,42 @@ export default function Home() {
         >
           <div className="shell">
             <Reveal className="work-intro">
-              <div className="project-meta">
-                <span>Selected work</span>
-                <span>Website design & development</span>
-              </div>
-              <h2 id="work-title">Perranvale Publishing</h2>
+              <p className="project-meta">
+                Selected work / Perranvale Publishing
+              </p>
+              <h2 id="work-title">
+                A London story.
+                <br />
+                <span>A new perspective.</span>
+              </h2>
               <p className="section-intro">
-                An independent publisher. A richly illustrated book. A website
-                that brings the story into focus.
+                A photography-led website for an independent publisher,
+                connecting a London story with a clear route to the book.
               </p>
             </Reveal>
             <Reveal className="project-feature">
               <ProjectImage
                 name="desktop"
                 alt="Desktop homepage for Perranvale Publishing with Anthony Bates’s Royal Festival Hall photograph"
-                sizes="(max-width: 767px) 100vw, 65vw"
+                sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) calc(100vw - 64px), (max-width: 1552px) calc(100vw - 112px), 1440px"
               />
               <div className="project-story">
-                <h3>A new home for a London story.</h3>
+                <h3>
+                  Lead with the story.
+                  <br />
+                  Make the next step clear.
+                </h3>
                 <p>
                   The brief was to give{" "}
                   <cite>Regeneration: 75 Years of London’s South Bank</cite> a
-                  clear, engaging home online while retaining the publisher’s
-                  existing shop.
+                  distinctive home online while retaining the publisher’s
+                  existing Wix shop.
                 </p>
                 <p>
-                  I built a responsive website around the photography, book
-                  previews and author’s story, with a direct route to Wix’s
-                  hosted checkout.
+                  Anthony Bates’s opening photograph establishes the setting.
+                  Short, readable copy introduces the book, with a prominent
+                  book link so visitors can explore the story or move towards
+                  buying without searching for the next step.
                 </p>
                 <a
                   className="text-link"
@@ -134,14 +173,19 @@ export default function Home() {
                   <ProjectImage
                     name="mobile"
                     alt="Perranvale homepage on a phone, with readable text and clear book links"
-                    sizes="240px"
+                    sizes="(max-width: 360px) 110px, (max-width: 1100px) 130px, 160px"
                   />
                 </div>
                 <div>
-                  <h3>Considered on every screen.</h3>
+                  <h3>
+                    Same story.
+                    <br />
+                    Smaller screen.
+                  </h3>
                   <p>
-                    Clear navigation, readable type and a layout that makes room
-                    for the photography, from phone to desktop.
+                    A compact menu, readable type and the book link close to the
+                    introduction keep the priorities intact on a phone. The
+                    photography still has room to breathe.
                   </p>
                 </div>
               </Reveal>
@@ -149,17 +193,21 @@ export default function Home() {
                 <ProjectImage
                   name="book"
                   alt="Perranvale book page with cover gallery, book information and the button leading to Wix checkout"
-                  sizes="(max-width: 767px) 100vw, 55vw"
+                  sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1100px) 48vw, 54vw"
                 />
                 <div>
-                  <h3>From browsing to buying.</h3>
+                  <h3>A clear route to checkout.</h3>
                   <p>
-                    Book details and an image gallery sit together, with Wix
-                    continuing to manage products, orders and secure checkout.
+                    Book details and image previews sit together. Wix continues
+                    to manage products, stock, payments and orders, keeping the
+                    existing shop behind the new browsing experience.
                   </p>
                 </div>
               </Reveal>
             </div>
+            <p className="project-capture-note">
+              Project captures show the original launch design.
+            </p>
           </div>
         </section>
 
@@ -171,22 +219,29 @@ export default function Home() {
           <div className="shell offer-layout">
             <Reveal className="offer-summary">
               <h2 id="offer-title">
-                A proper website.
-                <br />A clear starting price.
+                Ambition, meet
+                <br />
+                <span>straightforward.</span>
               </h2>
               <div className="price">
                 <span>From</span>
                 <strong>£350</strong>
               </div>
               <p>
-                A focused website for a small business, personally managed from
-                the first conversation to the final checks.
+                A straightforward website of up to five standard pages for a
+                small business, with mobile-friendly design and personal support
+                from brief to launch.
               </p>
               <p className="payment-note">
-                £175 deposit and £175 before launch for a £350 project.
+                For a £350 project: £175 deposit before work starts, then £175
+                after approval and before launch.
               </p>
-              <a className="button button-primary" href={REVIEW_MAILTO}>
-                Free website review <ArrowUpRight size={18} />
+              <p className="offer-next">
+                Tell me what you need. I’ll confirm the scope and price before
+                you commit.
+              </p>
+              <a className="text-link" href="#contact">
+                Discuss your website <ArrowUpRight size={18} />
               </a>
             </Reveal>
             <Reveal className="offer-inclusions">
@@ -208,6 +263,36 @@ export default function Home() {
                 quoted separately. Third-party fees are additional.
               </p>
             </Reveal>
+            <div className="offer-questions">
+              <h3>Clear before we start.</h3>
+              <div className="scope-answers">
+                <details>
+                  <summary>What do I need to provide?</summary>
+                  <p>
+                    Your logo, photographs you have permission to use, and
+                    accurate business details and wording. We’ll agree what is
+                    needed for your pages before the build.
+                  </p>
+                </details>
+                <details>
+                  <summary>How does the revision round work?</summary>
+                  <p>
+                    You review a private preview and send one complete list of
+                    reasonable changes. New pages, new features, major redesigns
+                    or further revision rounds may need a separate quote.
+                  </p>
+                </details>
+                <details>
+                  <summary>What is quoted separately?</summary>
+                  <p>
+                    Extra pages, ecommerce, booking systems, extensive
+                    copywriting and larger features. Domain, hosting and other
+                    third-party fees are separate. Basic on-page SEO is
+                    included; a full SEO campaign is not.
+                  </p>
+                </details>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -219,14 +304,40 @@ export default function Home() {
           <div className="shell">
             <Reveal className="process-title">
               <h2 id="process-title">
-                You speak to the person
+                One person.
                 <br />
-                building your website.
+                <span>With you all the way.</span>
               </h2>
-              <p className="section-intro">
-                That’s me, Jameson. A clear conversation, a considered design
-                and a preview you can take your time with.
-              </p>
+              <div className="designer-intro">
+                <p className="designer-lead">
+                  I’m Jameson, an independent web designer based in North
+                  London. I design and build your website, and I’m the person
+                  you speak to throughout the project.
+                </p>
+                <dl className="designer-benefits">
+                  <div>
+                    <dt>A direct conversation</dt>
+                    <dd>
+                      Your brief and feedback go straight to the person doing
+                      the work.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Your business sets the direction</dt>
+                    <dd>
+                      The design starts with your services, your customers and
+                      what they need to do next.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>A clear way forward</dt>
+                    <dd>
+                      An agreed scope, a private preview and one consolidated
+                      revision round keep the process understandable.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
             </Reveal>
             <Reveal className="process-path">
               <article>
@@ -257,29 +368,25 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="care section" aria-labelledby="care-title">
+        <section
+          id="care"
+          className="care section"
+          aria-labelledby="care-title"
+        >
           <div className="shell">
             <Reveal className="care-panel">
-              <div className="care-art" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/care-paper.webp"
-                  width="1200"
-                  height="800"
-                  alt=""
-                  loading="lazy"
-                />
-              </div>
+              <CareStudio />
               <div className="care-copy">
-                <p className="eyebrow">Optional website care</p>
+                <p className="care-label">Optional website care</p>
                 <h2 id="care-title">
                   Looked after,
                   <br />
                   even after launch.
                 </h2>
                 <p>
-                  Routine checks, small updates and a familiar point of contact
-                  when your website needs attention.
+                  Optional care for routine checks, small text or image updates,
+                  and a familiar point of contact when your website needs
+                  attention.
                 </p>
                 <div className="care-price">
                   <strong>£39</strong>
@@ -287,8 +394,12 @@ export default function Home() {
                 </div>
                 <p className="care-detail">
                   Includes approximately 30 minutes of small updates each month.
-                  Larger changes and third-party fees are separate.
+                  New pages, redesigns, larger features and third-party fees are
+                  separate. Care is optional.
                 </p>
+                <a className="text-link" href="#contact">
+                  Ask about website care <ArrowUpRight size={18} />
+                </a>
               </div>
             </Reveal>
           </div>
@@ -296,27 +407,27 @@ export default function Home() {
 
         <section
           id="contact"
+          tabIndex={-1}
           className="contact section"
           aria-labelledby="contact-title"
         >
-          <div className="shell">
-            <Reveal>
+          <div className="shell contact-layout">
+            <Reveal className="contact-intro">
               <h2 id="contact-title">
-                Let’s make your website
+                Your next chapter
                 <br />
-                work for your business.
+                <span>starts here.</span>
               </h2>
               <p>
-                Send me what you have. I’ll take a look and share a few
-                practical ideas, with no pressure to commit.
+                Not sure what your website needs? Start with a free review and a
+                few useful ideas.
               </p>
-              <a className="button button-primary" href={REVIEW_MAILTO}>
-                Free website review <ArrowUpRight size={18} />
-              </a>
-              <a className="contact-email" href={`mailto:${SITE_EMAIL}`}>
-                {SITE_EMAIL}
-              </a>
+              <p>
+                No website yet? Tell me about your business and what you’d like
+                it to do online.
+              </p>
             </Reveal>
+            <ReviewContact />
           </div>
         </section>
       </main>

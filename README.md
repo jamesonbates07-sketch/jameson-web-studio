@@ -5,10 +5,13 @@ A responsive studio website for independent businesses in North London. Built wi
 ## Website
 
 - Approved Jameson logo and paper, charcoal and lime identity
-- Geist typography, system light/dark themes and reduced-motion support
+- Interactive website-building hero: an actual Perranvale project moves through layout, design and the finished responsive website
+- Oversized Geist typography, system light/dark themes and reduced-motion support
+- Responsive CTA hover feedback, staggered typography and progressive scroll reveals
 - Perranvale Publishing homepage case study with authentic desktop, phone and book-page captures
 - Websites from £350, one consolidated revision round, optional £39/month care
-- Existing prefilled free-review email route, with no form backend or trackers
+- A clearer free-review explanation, prefilled email draft and email-copy fallback, with no form backend or trackers
+- Personal introduction, explained package scope and accessible native scope disclosures
 - Existing `/privacy/`, `/brand-preview/`, `#work`, `#offer`, `#process` and `#contact` destinations
 - Native mobile navigation that also works without JavaScript
 
@@ -28,9 +31,11 @@ The build creates `out/`. It uses `output: "export"`, `trailingSlash: true` and 
 
 The existing SVG brand pack is preserved under `public/brand/`. `npm run brand:generate` regenerates the pack, followed by the refreshed website social card. `npm run social:generate` regenerates only the 1200 × 630 Open Graph SVG and PNG from the original logo and real project screenshot.
 
-Project captures in `public/work/perranvale/` show the actual [Perranvale Publishing website](https://www.perranvalepublishing.com/). They are WebP variants, not generated interfaces. See `docs/asset-provenance.md` for capture details. No client testimonial or commercial-performance metric is claimed.
+Project captures in `public/work/perranvale/` show the actual [Perranvale Publishing website](https://www.perranvalepublishing.com/). They are WebP variants, not generated interfaces. See `docs/asset-provenance.md` for capture details. `npm run assets:optimize` regenerates the smaller phone variants. The interactive website-building hero is described in `docs/immersive-redesign.md`. No client testimonial or commercial-performance metric is claimed.
 
-The decorative care-section paper image is generated artwork, kept separate from project evidence.
+The care section uses a custom, clearly labelled interactive text-refinement study built from the real studio identity. Its replay is a local illustration and never changes live website content. The previous folded-paper asset has been retired. Jameson approved publication of this care-visual replacement on 13 November 2026. Production deployment: `dcadb780-36d4-40bf-bdf6-902d6bbbf948`; previous production `94e7380d-9af3-4270-8f25-7cdba28851ba` is retained for rollback. Live responsive and interaction checks passed.
+
+The 13 November follow-up polish was approved and published to the live site. Production deployment: `94e7380d-9af3-4270-8f25-7cdba28851ba`. The previous `6a2ffab1-1968-410c-83bd-9deeaff5d829` deployment is retained for rollback.
 
 ## Preview and release
 

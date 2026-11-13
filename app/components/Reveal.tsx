@@ -1,9 +1,8 @@
 "use client";
 
-import { LazyMotion, domAnimation, m, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
-/** Content is visible in static HTML; a brief reveal introduces each section. */
+/** Progressive reveal: server-rendered content remains visible without JS. */
 export function Reveal({
   children,
   className = "",
@@ -11,18 +10,26 @@ export function Reveal({
   children: ReactNode;
   className?: string;
 }) {
-  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || matchMedia("(prefers-reduced-motion: reduce)").matches)
+      return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          element.classList.add("is-entering");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.12 },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        className={className}
-        initial={false}
-        whileInView={reduce ? undefined : { opacity: [0.55, 1], y: [18, 0] }}
-        viewport={{ once: true, amount: 0.12 }}
-        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {children}
-      </m.div>
-    </LazyMotion>
+    <div ref={ref} className={`scroll-reveal ${className}`}>
+      {children}
+    </div>
   );
 }
